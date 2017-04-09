@@ -1,11 +1,10 @@
 package com.wiley.sorting.algorithms;
 
-import java.util.List;
-
 /**
- * Created by andron on 4/7/2017.
+ * Created by Andrey Tyukavkin on 4/7/2017.
+ *
  */
 public interface Sorting<T> {
 
-    List<T> sort(List<T> input);
+    T[] sort(T[] input);
 }

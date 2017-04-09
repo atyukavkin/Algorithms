@@ -1,28 +1,66 @@
 package com.wiley.sorting;
 
-import com.wiley.sorting.algorithms.NumberBubbleSorter;
+import com.wiley.sorting.algorithms.BubbleSorter;
+import com.wiley.sorting.algorithms.MergeSorter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 /**
- * Created by andron on 4/7/2017.
+ * Created by Andrey Tyukavkin on 4/7/2017.
  */
 public class Demonstrator {
 
-    private static void printList(List toPrint) {
-        for (Object aResult : toPrint) {
-            System.out.print(aResult + ", ");
+    public static void main(String[] args) {
+        int typeOfSorting = 0;
+        if (args == null || args.length == 0) {
+            System.out.println("Type of sorting is not set");
+            return;
         }
-        System.out.println("\n");
+        String typeOfSortingArgument = args[0];
+        try {
+            typeOfSorting = Integer.parseInt(typeOfSortingArgument);
+        } catch (NumberFormatException e) {
+            System.out.println("Wrong type of sorting " + typeOfSortingArgument);
+        }
+
+        Comparable[] input = readInput();
+
+        if (input.length > 0) {
+            makeSorting(typeOfSorting, input);
+        }
     }
 
-    public static void main(String[] args) {
-        System.out.println("Enter comma separated list of numbers 1,3,4,5. \n");
+    private static void makeSorting(int typeOfSorting, Comparable[] input) {
+        System.out.println("Not sorted list");
+        printList(input);
+        Comparable[] output = null;
+
+        switch (typeOfSorting) {
+            case 1:
+                BubbleSorter bubbleSorter = new BubbleSorter();
+                output = bubbleSorter.sort(input);
+                break;
+            case 2:
+                MergeSorter mergeSorter = new MergeSorter();
+                output = mergeSorter.sort(input);
+                break;
+            default:
+                System.out.println("Wrong type of sorting " + typeOfSorting);
+                break;
+        }
+        if (output != null) {
+            System.out.println("Sorted list");
+            printList(output);
+        }
+    }
+
+    private static Comparable[] readInput() {
+        System.out.println("Enter comma separated list of numbers 1,3,4,5 ");
         Scanner reader = new Scanner(System.in);
         reader.useDelimiter(",");
-        List<Integer> input = new ArrayList<>();
+        List<Comparable> inputList = new ArrayList<>();
         while (reader.hasNext()) {
             String next = reader.next();
 
@@ -31,19 +69,22 @@ public class Demonstrator {
             }
 
             try {
-                input.add(Integer.parseInt(next));
+                inputList.add(Integer.parseInt(next));
             } catch (NumberFormatException e) {
-                System.out.println("Skipped not a number element \n" + next);
+                System.out.println("Skipped not a number element " + next);
             }
         }
-        System.out.println("Finished to read\n");
-        if (input.size() > 0) {
-            System.out.println("Not sorted list\n");
-            printList(input);
-            NumberBubbleSorter bubbleSorter = new NumberBubbleSorter();
-            List<Integer> output = bubbleSorter.sort(input);
-            System.out.println("Sorted list\n");
-            printList(output);
+        Comparable[] input = new Comparable[inputList.size()];
+        input = inputList.toArray(input);
+
+        System.out.println("Finished to read");
+        return input;
+    }
+
+    private static void printList(Comparable[] toPrint) {
+        for (Comparable aResult : toPrint) {
+            System.out.print(aResult + ", ");
         }
+        System.out.println("");
     }
 }
