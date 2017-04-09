@@ -13,14 +13,13 @@ public class NumberBubbleSorter implements Sorting<Integer> {
 
     public List<Integer> sort(List<Integer> input) {
         int inputSize = input.size();
-        int l;
         for (int i = inputSize; i >= 0; i--) {
             for (int k = 0; k < inputSize - 1; k++) {
-                if (input.get(k) > input.get(k+1)) {
-                    swapPositions(k, k+1, input);
+                if (input.get(k) > input.get(k + 1)) {
+                    swapPositions(k, k + 1, input);
                 }
             }
         }
-        return (input);
+        return input;
     }
 }
