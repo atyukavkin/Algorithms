@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 /**
  * Created by Andrey Tyukavkin on 4/7/2017.
+ *
  */
 public class Demonstrator {
 
