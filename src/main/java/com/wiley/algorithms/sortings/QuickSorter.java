@@ -1,4 +1,4 @@
-package com.wiley.sorting.algorithms;
+package com.wiley.algorithms.sortings;
 
 /**
  * Created by Andrey Tyukavkin on 4/10/2017.

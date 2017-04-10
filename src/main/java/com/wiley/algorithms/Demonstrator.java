@@ -1,9 +1,9 @@
-package com.wiley.sorting;
+package com.wiley.algorithms;
 
-import com.wiley.sorting.algorithms.BubbleSorter;
-import com.wiley.sorting.algorithms.MergeSorter;
-import com.wiley.sorting.algorithms.QuickSorter;
-import com.wiley.sorting.algorithms.SelectionSorter;
+import com.wiley.algorithms.sortings.BubbleSorter;
+import com.wiley.algorithms.sortings.MergeSorter;
+import com.wiley.algorithms.sortings.QuickSorter;
+import com.wiley.algorithms.sortings.SelectionSorter;
 
 import java.util.ArrayList;
 import java.util.List;
