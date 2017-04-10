@@ -2,7 +2,6 @@ package com.wiley.sorting.algorithms;
 
 /**
  * Created by Andrey Tyukavkin on 4/9/2017.
- *
  */
 public class MergeSorter<T extends Comparable<T>> implements Sorting<T> {
 
@@ -46,5 +45,10 @@ public class MergeSorter<T extends Comparable<T>> implements Sorting<T> {
         for (int i = 0; i < num; i++, higherIndex--) {
             input[higherIndex] = (T) tempMerge[higherIndex];
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Merge sorting";
     }
 }

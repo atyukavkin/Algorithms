@@ -2,6 +2,7 @@ package com.wiley.sorting.algorithms;
 
 /**
  * Created by Andrey Tyukavkin on 4/9/2017.
+ *
  */
 public class SelectionSorter<T extends Comparable<T>> implements Sorting<T> {
 
@@ -19,5 +20,10 @@ public class SelectionSorter<T extends Comparable<T>> implements Sorting<T> {
         }
 
         return input;
+    }
+
+    @Override
+    public String toString() {
+        return "Selection sorting";
     }
 }

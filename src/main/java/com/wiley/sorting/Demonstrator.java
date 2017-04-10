@@ -2,6 +2,7 @@ package com.wiley.sorting;
 
 import com.wiley.sorting.algorithms.BubbleSorter;
 import com.wiley.sorting.algorithms.MergeSorter;
+import com.wiley.sorting.algorithms.QuickSorter;
 import com.wiley.sorting.algorithms.SelectionSorter;
 
 import java.util.ArrayList;
@@ -43,14 +44,22 @@ public class Demonstrator {
             case 1:
                 BubbleSorter bubbleSorter = new BubbleSorter();
                 output = bubbleSorter.sort(input);
+                System.out.println(bubbleSorter.toString());
                 break;
             case 2:
                 MergeSorter mergeSorter = new MergeSorter();
                 output = mergeSorter.sort(input);
+                System.out.println(mergeSorter.toString());
                 break;
             case 3:
                 SelectionSorter selectionSorter = new SelectionSorter();
                 output = selectionSorter.sort(input);
+                System.out.println(selectionSorter.toString());
+                break;
+            case 4:
+                QuickSorter quickSorter = new QuickSorter();
+                output = quickSorter.sort(input);
+                System.out.println(quickSorter.toString());
                 break;
             default:
                 System.out.println("Wrong type of sorting " + typeOfSorting);

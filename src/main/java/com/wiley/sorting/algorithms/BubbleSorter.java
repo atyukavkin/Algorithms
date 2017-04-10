@@ -25,6 +25,10 @@ public class BubbleSorter<T extends Comparable<T>> implements Sorting<T> {
         return input;
     }
 
+    @Override
+    public String toString() {
+        return "Bubble sorting";
+    }
 }
 
 
