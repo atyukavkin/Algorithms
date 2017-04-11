@@ -30,6 +30,10 @@ Links:
 https://en.wikipedia.org/wiki/Selection_sort
 https://www.tutorialspoint.com/data_structures_algorithms/selection_sort_algorithm.htm
 
+**Quick Sort**
+
+Links:
+
 
 
 
