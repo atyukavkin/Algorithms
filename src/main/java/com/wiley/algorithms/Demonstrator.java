@@ -17,14 +17,14 @@ import java.util.Scanner;
 public class Demonstrator {
 
     public static void main(String[] args) {
-        int typeOfSorting = 0;
+        int typeOfAlgorithm = 0;
         if (args == null || args.length == 0) {
             System.out.println("Type of sorting is not set");
             return;
         }
         String typeOfAlgorithmArgument = args[0];
         try {
-            typeOfSorting = Integer.parseInt(typeOfAlgorithmArgument);
+            typeOfAlgorithm = Integer.parseInt(typeOfAlgorithmArgument);
         } catch (NumberFormatException e) {
             System.out.println("Wrong type of algorithm " + typeOfAlgorithmArgument);
         }
@@ -32,19 +32,19 @@ public class Demonstrator {
         Comparable[] input = readInput();
 
         if (input.length > 0 && args.length == 1) {
-            performSortingAlgorithm(typeOfSorting, input);
+            performSortingAlgorithm(typeOfAlgorithm, input);
         } else if (input.length > 0 && args.length == 2) {
             String searchKeywordArgument = args[1];
             try {
                 int keyword = Integer.parseInt(searchKeywordArgument);
-                performSortingAlgorithm(typeOfSorting, keyword, input);
+                performSearchingAlgorithm(typeOfAlgorithm, keyword, input);
             } catch (NumberFormatException e) {
                 System.out.println("Wrong type of algorithm " + typeOfAlgorithmArgument);
             }
         }
     }
 
-    private static void performSortingAlgorithm(int typeOfAlgorithm, Comparable keyword, Comparable[] input) {
+    private static void performSearchingAlgorithm(int typeOfAlgorithm, Comparable keyword, Comparable[] input) {
         int position = 0;
 
         switch (typeOfAlgorithm) {
