@@ -2,7 +2,7 @@ package com.wiley.algorithms.sortings;
 
 /**
  * Created by Andrey Tyukavkin on 4/9/2017.
- *
+ * Bubble sort
  */
 public class BubbleSorter<T extends Comparable<T>> implements Sorting<T> {
 

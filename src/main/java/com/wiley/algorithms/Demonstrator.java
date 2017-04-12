@@ -1,5 +1,6 @@
 package com.wiley.algorithms;
 
+import com.wiley.algorithms.searching.BinarySearcher;
 import com.wiley.algorithms.sortings.BubbleSorter;
 import com.wiley.algorithms.sortings.MergeSorter;
 import com.wiley.algorithms.sortings.QuickSorter;
@@ -11,7 +12,7 @@ import java.util.Scanner;
 
 /**
  * Created by Andrey Tyukavkin on 4/7/2017.
- *
+ * Demonstration
  */
 public class Demonstrator {
 
@@ -21,26 +22,59 @@ public class Demonstrator {
             System.out.println("Type of sorting is not set");
             return;
         }
-        String typeOfSortingArgument = args[0];
+        String typeOfAlgorithmArgument = args[0];
         try {
-            typeOfSorting = Integer.parseInt(typeOfSortingArgument);
+            typeOfSorting = Integer.parseInt(typeOfAlgorithmArgument);
         } catch (NumberFormatException e) {
-            System.out.println("Wrong type of sorting " + typeOfSortingArgument);
+            System.out.println("Wrong type of algorithm " + typeOfAlgorithmArgument);
         }
 
         Comparable[] input = readInput();
 
-        if (input.length > 0) {
-            makeSorting(typeOfSorting, input);
+        if (input.length > 0 && args.length == 1) {
+            performSortingAlgorithm(typeOfSorting, input);
+        } else if (input.length > 0 && args.length == 2) {
+            String searchKeywordArgument = args[1];
+            try {
+                int keyword = Integer.parseInt(searchKeywordArgument);
+                performSortingAlgorithm(typeOfSorting, keyword, input);
+            } catch (NumberFormatException e) {
+                System.out.println("Wrong type of algorithm " + typeOfAlgorithmArgument);
+            }
         }
     }
 
-    private static void makeSorting(int typeOfSorting, Comparable[] input) {
+    private static void performSortingAlgorithm(int typeOfAlgorithm, Comparable keyword, Comparable[] input) {
+        int position = 0;
+
+        switch (typeOfAlgorithm) {
+            case 11:
+                QuickSorter quickSorter = new QuickSorter();
+                Comparable[] output = quickSorter.sort(input);
+                System.out.println("Sorted input list");
+                printList(output);
+
+                BinarySearcher binarySearcher = new BinarySearcher();
+                position = binarySearcher.search(output, keyword);
+                System.out.println(binarySearcher.toString());
+                break;
+            default:
+                System.out.println("Wrong type of searching " + typeOfAlgorithm);
+                break;
+        }
+        if (position <= 0) {
+            System.out.println("Keyword is not found");
+        } else {
+            System.out.println("Position of keyword is " + position);
+        }
+    }
+
+    private static void performSortingAlgorithm(int typeOfAlgorithm, Comparable[] input) {
         System.out.println("Not sorted list");
         printList(input);
         Comparable[] output = null;
 
-        switch (typeOfSorting) {
+        switch (typeOfAlgorithm) {
             case 1:
                 BubbleSorter bubbleSorter = new BubbleSorter();
                 output = bubbleSorter.sort(input);
@@ -62,7 +96,7 @@ public class Demonstrator {
                 System.out.println(quickSorter.toString());
                 break;
             default:
-                System.out.println("Wrong type of sorting " + typeOfSorting);
+                System.out.println("Wrong type of sorting " + typeOfAlgorithm);
                 break;
         }
         if (output != null) {
