@@ -2,6 +2,7 @@ package com.wiley.algorithms.sortings;
 
 /**
  * Created by Andrey Tyukavkin on 4/10/2017.
+ *
  */
 public class QuickSorter<T extends Comparable<T>> implements Sorting<T> {
 
