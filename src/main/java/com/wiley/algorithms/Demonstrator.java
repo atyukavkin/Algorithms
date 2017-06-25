@@ -1,5 +1,6 @@
 package com.wiley.algorithms;
 
+import com.wiley.algorithms.searching.BinarySearcher;
 import com.wiley.algorithms.sortings.*;
 
 import java.util.ArrayList;
