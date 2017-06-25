@@ -2,7 +2,7 @@ package com.wiley.algorithms.sortings;
 
 /**
  * Created by Andrey Tyukavkin on 4/9/2017.
- *
+ * Selection sort
  */
 public class SelectionSorter<T extends Comparable<T>> implements Sorting<T> {
 
