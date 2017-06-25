@@ -1,9 +1,6 @@
 package com.wiley.algorithms;
 
-import com.wiley.algorithms.sortings.BubbleSorter;
-import com.wiley.algorithms.sortings.MergeSorter;
-import com.wiley.algorithms.sortings.QuickSorter;
-import com.wiley.algorithms.sortings.SelectionSorter;
+import com.wiley.algorithms.sortings.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +57,11 @@ public class Demonstrator {
                 QuickSorter quickSorter = new QuickSorter();
                 output = quickSorter.sort(input);
                 System.out.println(quickSorter.toString());
+                break;
+            case 5:
+                HeapSorter heapSorter = new HeapSorter();
+                output = heapSorter.sort(input);
+                System.out.println(heapSorter.toString());
                 break;
             default:
                 System.out.println("Wrong type of sorting " + typeOfSorting);
